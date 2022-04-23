@@ -68,9 +68,13 @@
     <script>
       let socket = io();
 
+      const name = prompt("what is your name?");
+
       let messages = document.getElementById("messages");
       let form = document.getElementById("form");
       let input = document.getElementById("input");
+
+      appendMessage("You Joined");
 
       form.addEventListener("submit", function (e) {
         e.preventDefault();
@@ -86,6 +90,12 @@
         messages.appendChild(item);
         window.scrollTo(0, document.body.scrollHeight);
       });
+
+      function appendMessage(message) {
+        const messageElement = document.createElement("li");
+        messageElement.innerText = message;
+        messages.appendChild(messageElement);
+      }
     </script>
   </body>
 </html>
